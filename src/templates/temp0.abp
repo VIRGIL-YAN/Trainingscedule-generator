@@ -1,0 +1,85 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{color}															
+\usepackage{colortbl}	
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{rotating}
+\definecolor{grau}{rgb}{0.8,0.8,0.8}
+
+
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{0cm}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\pagenumbering{empty}
+
+
+\cfoot{
+\centering\begin{tabularx}{.8\paperwidth}{lp{8cm}}
+\rule{.6\textwidth}{1pt}\newline& \rule{.6\textwidth}{1pt}\\
+Datum, Unterschrift Auszubildende/r& Datum, Unterschrift Ausbildende/r oder Ausbilder/in \\[3em]  
+\rule{.6\textwidth}{1pt}\newline& \rule{.6\textwidth}{1pt}\\
+Datum, Unterschrift gesetzliche/r Vertreter/in
+& Datum, weitere Sichtvermerke (z. B. Lehrer/in) \\[3em]  
+\end{tabularx}
+}
+\newcommand{\header}[6]{
+  \begin{figure}[ht]
+    \includegraphics[width=.3\textwidth]{#1}
+  \end{figure}
+  \centering\textbf{\large{Ausbildungsnachweis (täglich)}}
+  \begin{tabularx}{.8\paperwidth}{|l|l|l|X|}
+    \hline Name des/der Auszubildenden: & \multicolumn{3}{|l|}{#2}\\ 
+    \hline Ausbildungsjahr: & #3 & Ausbildungsbereich: & #4 \\ 
+    \hline Ausbildungswoche vom: & #5 & bis: & #6 \\ 
+    \hline 
+  \end{tabularx}
+}
+
+\newcommand{\rotateit}[1]{
+  \begin{center}\begin{sideways}#1\end{sideways}\end{center}
+}
+
+\newcommand{\timesum}[1]{
+  \begin{tabularx}{.8\paperwidth}{|p{0.1cm}|X|p{0.5cm}|}
+    \hline &Gesamt: & #1\\
+    \hline 
+  \end{tabularx} 
+}
+
+\newcommand{\task}[2]{
+   \hspace{-0.20cm}\begin{tabularx}{1.09\linewidth}{Xp{0.5cm}}
+    #1&#2\\\hline
+  \end{tabularx}  
+
+}
+
+\newcommand{\week}[7]{
+  \newlength{\len}  
+  \newlength{\emp} 
+  \settowidth{\emp}{} 
+  \begin{tabularx}{.8\paperwidth}{|p{0.1cm}|X|p{0.5cm}|}
+    \hline \cellcolor{grau} &\cellcolor{grau}Betriebliche Tätigkeiten, Unterweisungen, betrieblicher Unterricht, sonstige Schulungen, Themen des Berufsschulunterrichts &\cellcolor{grau} \small{Zeit}\\
+    \hline\settowidth{\len}{#1}	\ifdim\len=\emp \else \rotateit{Montag} \fi & #1 & \\
+    \hline\settowidth{\len}{#2}	\ifdim\len=\emp \else \rotateit{Dienstag} \fi& #2 &\\ 
+    \hline\settowidth{\len}{#3}	\ifdim\len=\emp \else \rotateit{Mittwoch} \fi& #3 &\\ 
+    \hline\settowidth{\len}{#4}	\ifdim\len=\emp \else \rotateit{Donnerstag} \fi& #4 &\\
+    \hline\settowidth{\len}{#5}	\ifdim\len=\emp \else \rotateit{Freitag} \fi& #5 &\\
+    \hline\settowidth{\len}{#6}	\ifdim\len=\emp \else \rotateit{Samstag} \fi& #6 &\\ 
+    \hline\settowidth{\len}{#7}	\ifdim\len=\emp \else \rotateit{Sonntag} \fi& #7 &\\ 
+    \hline 
+  \end{tabularx}  
+}
+
+
+\begin{document}
